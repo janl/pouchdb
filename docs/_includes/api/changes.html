@@ -321,9 +321,11 @@ First `put()` a design document:
 {
   _id: '_design/mydesign',
   views: {
-    myview: function (doc) {
-      if (doc.type === 'marsupial') {
-        emit(doc._id);
+    myview: { 
+      map: function (doc) {
+        if (doc.type === 'marsupial') {
+          emit(doc._id);
+        }
       }
     }.toString()
   }
